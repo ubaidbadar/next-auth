@@ -6,7 +6,8 @@ import HomeIcon from "../../icons/Home";
 import styles from './AuthLayout.module.css';
 
 interface propTypes {
-    children: React.ReactNode
+    children: React.ReactNode,
+    footer: boolean
 }
 
 const AuthLayout = (props: propTypes) => {

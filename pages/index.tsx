@@ -10,7 +10,7 @@ const LoginPage: NextPage = props => {
     const oAuthHandler = (name: string) => signIn(name, { redirect: false });
     
     return (
-        <AuthLayout>
+        <AuthLayout back={false}>
             <button className='button' onClick={() => oAuthHandler('google')}>Google</button>
             <button className='button' onClick={() => oAuthHandler('linkedin')}>Linkedin</button>
             <p className='text-center'>OR</p>
