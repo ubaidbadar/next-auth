@@ -1,19 +1,25 @@
 import AuthLayout from "../hoc/AuthLayout/AuthLayout";
 import { NextPage } from 'next';
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { signIn } from 'next-auth/react'
 import Link from "next/link";
+import verifyEmailHandler from "../lib/verifyEmailHandler";
 
 const EmailMagicLinkPage: NextPage = () => {
     const [email, setEmail] = useState('');
-    const signInWithMagicLink = async () => {
+    const isValid = verifyEmailHandler(email);
+    const signInWithMagicLink = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if(!isValid) return;
         const res = await signIn('email', { email });
         console.log(res);
     }
     return (
         <AuthLayout>
-            <input type='email' value={email} onChange={e => setEmail(e.target.value)} className="input" placeholder="Type your email address" />
-            <button className="button" onClick={signInWithMagicLink}>Send Magic Link</button>
+            <form onSubmit={signInWithMagicLink}>
+                <input type='email' value={email} onChange={e => setEmail(e.target.value)} className="input" placeholder="Type your email address" />
+                <button disabled={!isValid} className="button">Send Magic Link</button>
+            </form>
             <p className="text-center">OR</p>
             <Link href={`/password?email=${email}`} >
                 <a className="button button-white">
