@@ -1,0 +1,16 @@
+.root {
+    padding: 1.5rem;
+    display: grid;
+    gap: 1.5rem;
+    max-width: 30rem;
+    margin: auto;
+}
+.root form {
+    display: inherit;
+    gap: inherit;
+}
+
+.logo {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}

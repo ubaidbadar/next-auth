@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+}
+
+.input, .button {
+    border: 0.1em solid #e0e0e0;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 1.25em;
+    outline: none;
+    border-radius: 0.25em;
+    color: inherit;
+}
+svg {
+    width: 1em;
+}
+
+.button {
+    cursor: pointer;
+    background: #7e7e7e;
+    text-align: center;
+    text-decoration: none;
+}
+.button:not(.button-white) {
+    background: #7e7e7e;
+    color: #fff;
+}
+.button.button-white {
+    background: #fff;
+}
+.text-center {
+    text-align: center;
+}
