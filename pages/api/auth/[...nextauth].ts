@@ -38,7 +38,7 @@ export default NextAuth({
         if(!(await compare(password, user.password))) throw Error("Email or password is invalid");
 
 
-        return { email, emailVerified: user.emailVerified };
+        return { email, name: 'Ubaid Badar', emailVerified: user.emailVerified };
       }
     }),
     GoogleProvider({

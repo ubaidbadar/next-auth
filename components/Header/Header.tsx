@@ -1,11 +1,11 @@
 import { useSession, signOut } from 'next-auth/react';
-import { useEffect } from 'react';
 import styles from './Header.module.css';
 
 const Header = () => {
     const { status, data } = useSession();
     const user = data?.user;
     if (status === 'loading') return null;
+    console.log(user);
     return (
         <div className={styles.root}>
             {status === 'authenticated' ? (
