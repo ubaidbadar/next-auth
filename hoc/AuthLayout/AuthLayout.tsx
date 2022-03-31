@@ -12,18 +12,20 @@ interface propTypes {
 const AuthLayout = (props: propTypes) => {
     const router = useRouter();
     return (
-        <>
-        <Header />
         <div className={styles.root}>
-            <Link href='/'>
-                <a className={styles.logo}>
-                    <HomeIcon />
-                </a>
-            </Link>
-            {props.children}
-            <button className={styles.btn} onClick={router.back}>Back</button>
+            <Header />
+            <div className={styles.main}>
+                <Link href='/'>
+                    <a className={styles.logo}>
+                        <HomeIcon />
+                    </a>
+                </Link>
+                {props.children}
+            </div>
+            <footer className={styles.footer}>
+                <button className={styles.btn} onClick={router.back}>Back</button>
+            </footer>
         </div>
-        </>
     )
 }
 

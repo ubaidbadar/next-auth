@@ -1,14 +1,21 @@
 .root {
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    gap: 2.5rem;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.main {
     display: grid;
     gap: 1.5rem;
 }
-.root form {
+.main form {
     display: inherit;
     gap: inherit;
     flex-direction: inherit;
-}
-.btn {
-    margin-top: auto;
 }
 
 .logo {
@@ -17,7 +24,6 @@
 }
 
 .btn {
-    margin-right: auto;
     border: none;
     outline: none;
     font-family: inherit;
@@ -25,4 +31,8 @@
     padding: 0;
     background: transparent;
     cursor: pointer;
+}
+
+.footer {
+    margin-top: auto;
 }
