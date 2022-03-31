@@ -35,7 +35,7 @@ export default NextAuth({
           return { email, emailVerified: user.emailVerified }
         }
         if(!user.password) throw Error("Please logged in with OAuth provider");
-        if(!(await compare(password, user.password))) return null;
+        if(!(await compare(password, user.password))) throw Error("Email or password is invalid");
 
 
         return { email, emailVerified: user.emailVerified };

@@ -2,7 +2,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 .root >p {
     margin: 0;
+}
+.main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.main p {
+    margin: 0 0 0.35rem 0;
+}
+.main img {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: cover;
+    border-radius: 3.5rem;
 }
