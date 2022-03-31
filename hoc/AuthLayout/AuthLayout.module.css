@@ -4,13 +4,17 @@
     padding: 2.5rem 2rem;
     gap: 2.5rem;
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
 }
 
 .main {
     display: grid;
     gap: 1.5rem;
+}
+.main h2 {
+    margin-top: 0;
+    font-weight: normal;
 }
 .main form {
     display: inherit;

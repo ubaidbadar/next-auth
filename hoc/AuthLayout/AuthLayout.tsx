@@ -10,7 +10,7 @@ interface propTypes {
     back?: boolean
 }
 
-const AuthLayout = (props: propTypes) => {
+const AuthLayout = ({ children, back = true }: propTypes) => {
     const router = useRouter();
     return (
         <div className={styles.root}>
@@ -21,9 +21,9 @@ const AuthLayout = (props: propTypes) => {
                         <HomeIcon />
                     </a>
                 </Link>
-                {props.children}
+                {children}
             </div>
-            {props.back && (
+            {back && (
                 <footer className={styles.footer}>
                     <button className={styles.btn} onClick={router.back}>Back</button>
                 </footer>

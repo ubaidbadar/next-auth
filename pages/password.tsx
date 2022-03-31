@@ -8,8 +8,9 @@ const LoginWithPasswordPage = () => {
     const [credentials, setCredentials] = useState({ email: router.query.email || '', password: '' });
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const res = await signIn('credentials', {...credentials, redirect: false});
-        console.log(res);
+        const res: any = await signIn('credentials', {...credentials, redirect: false});
+        if(res.error) router.push('/no-account')
+        
     }
     return (
         <AuthLayout>
