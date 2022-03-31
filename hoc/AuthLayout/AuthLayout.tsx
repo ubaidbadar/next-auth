@@ -7,7 +7,7 @@ import styles from './AuthLayout.module.css';
 
 interface propTypes {
     children: React.ReactNode,
-    footer: boolean
+    back?: boolean
 }
 
 const AuthLayout = (props: propTypes) => {
@@ -23,9 +23,11 @@ const AuthLayout = (props: propTypes) => {
                 </Link>
                 {props.children}
             </div>
-            <footer className={styles.footer}>
-                <button className={styles.btn} onClick={router.back}>Back</button>
-            </footer>
+            {props.back && (
+                <footer className={styles.footer}>
+                    <button className={styles.btn} onClick={router.back}>Back</button>
+                </footer>
+            )}
         </div>
     )
 }
