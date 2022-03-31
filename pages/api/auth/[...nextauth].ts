@@ -25,7 +25,6 @@ export default NextAuth({
       authorize: async (credentials, _req) => {
         await dbConnect();
         const { email, password } = { ...credentials, ..._req.body };
-        console.log(email, password);
         if (!email || !password) return null;
 
         let user = await User.findOne({ email });
@@ -33,15 +32,13 @@ export default NextAuth({
         if (!user) {
           const hashPassword = await hash(password, 12);
           user = await User.create({ email, password: hashPassword });
+          return { email, emailVerified: user.emailVerified }
         }
-        else if(!user.password) throw Error("Please logged in with OAuth provider");
-        else if(!(await compare(password, user.password))) return null;
+        if(!user.password) throw Error("Please logged in with OAuth provider");
+        if(!(await compare(password, user.password))) return null;
 
 
-        const data = user._doc;
-        delete data.password;
-
-        return { ...data };
+        return { email, emailVerified: user.emailVerified };
       }
     }),
     GoogleProvider({

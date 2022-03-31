@@ -4,6 +4,7 @@ import styles from './Header.module.css';
 const Header = () => {
     const { status, data } = useSession();
     if (status === 'loading') return null;
+    console.log(data);
     return (
         <div className={styles.root}>
             {status === 'authenticated' ? (
